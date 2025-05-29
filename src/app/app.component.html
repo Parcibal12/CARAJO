@@ -1,0 +1,47 @@
+<div class="game-container">
+  <h1>{{ titulo }}</h1>
+
+  <div class="game-info">
+    <span>Minas restantes: {{ obtener_minas_restantes() }}</span>
+    <button (click)="nuevo_juego()">Nuevo Juego</button> 
+  </div>
+
+  <div *ngIf="juego_terminado && !victoria" class="message game-over-message">
+    PERDISTE.
+  </div>
+  <div *ngIf="victoria" class="message win-message">
+    GANASTE
+  </div>
+
+  <div class="board">
+    <div *ngFor="let fila_actual of tablero; let indice_fila = index" class="board-row">
+      <div *ngFor="let celda of fila_actual; let indice_columna = index"
+           class="cell"
+           [class.revelada]="celda.esta_revelada"
+           [class.mina]="celda.esta_revelada && celda.es_mina"
+           [class.marcada]="celda.esta_marcada && !celda.esta_revelada"
+           [class.vecina-1]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 1"
+           [class.vecina-2]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 2"
+           [class.vecina-3]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 3"
+           [class.vecina-4]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 4"
+           [class.vecina-5]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 5"
+           [class.vecina-6]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 6"
+           [class.vecina-7]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 7"
+           [class.vecina-8]="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas === 8"
+           (click)="revelar_celda(celda)"
+           (contextmenu)="alternar_bandera($event, celda)">
+        <span *ngIf="!celda.esta_revelada && celda.esta_marcada">🚩</span>
+        <span *ngIf="celda.esta_revelada && !celda.es_mina && celda.minas_vecinas > 0">{{ celda.minas_vecinas }}</span>
+        <span *ngIf="celda.esta_revelada && celda.es_mina">💣</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

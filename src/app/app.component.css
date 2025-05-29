@@ -1,0 +1,103 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.game-info {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.game-info button {
+  padding: 8px 15px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+  border: 2px solid #777;
+  background-color: #ccc;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.board-row {
+  display: contents;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #999;
+  background-color: #bdbdbd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.cell:hover {
+  background-color: #aaa;
+}
+
+.cell.revelada {
+  background-color: #e0e0e0; 
+  cursor: default;
+}
+
+.cell.mina {
+  background-color: #ff7b7b;
+}
+
+.cell.marcada {
+
+}
+
+.cell.vecina-1 { color: #0000FF; }
+.cell.vecina-2 { color: #008000; }
+.cell.vecina-3 { color: #FF0000; }
+.cell.vecina-4 { color: #000080; }
+.cell.vecina-5 { color: #800000; }
+.cell.vecina-6 { color: #008080; }
+.cell.vecina-7 { color: #000000; }
+.cell.vecina-8 { color: #808080; }
+
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.game-over-message {
+  color: #D8000C;
+  background-color: #FFD2D2;
+}
+
+.win-message {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+}
+
+.cell.marcada {
+  background-color: #bdbdbd;
+}
+
+.cell.vecina-1 { color: blue; }
+.cell.vecina-2 { color: green; }
+.cell.vecina-3 { color: red; }
+.cell.vecina-4 { color: darkblue; }
